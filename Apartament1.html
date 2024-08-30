@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" type="image/png" href="finalhope.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background-color: rgb(158, 109, 97);
+      margin: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .idk {
+      visibility: none;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      z-index: 1000;
+      border-bottom: 0px solid white;
+    }
+
+    .logo {
+      margin-left: 9px;
+      margin-right: auto;
+      border-radius: 8px;
+      mix-blend-mode: multiply;
+    }
+
+    .nav-items {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      flex-grow: 1;
+    }
+
+    .nav-items li {
+      padding: 0;
+    }
+
+    .nav-items li a {
+      display: block;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: #a87c7c;
+      /* Default background color */
+      color: white;
+    }
+
+    .nav-items li a:hover:not(.active) {
+      background-color: #c76464;
+      /* Hover background color */
+    }
+
+    /* Ensure this rule is listed after the other rules */
+    .nav-items li a.active {
+      background-color: #04AA6D;
+      /* Active background color */
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .dropdownphone {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #4e4747;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .dropdownphone a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdownphone a.active {
+      background-color: #04AA6D;
+    }
+
+    .dropdownphone a:hover:not(.active) {
+      background-color: #575757;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #2e2d2d;
+      min-width: 120px;
+      max-width: 1000px;
+      width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #575757;
+    }
+
+    .dropbtn {
+      background-color: #a87c7c;
+      color: white;
+      padding: 14px 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      min-width: 120px;
+      width: 120px;
+      max-width: 1000px;
+      padding-bottom: 14px;
+    }
+
+    .dropbtn:hover {
+      background-color: #c76464;
+    }
+
+    .dropmenu:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropmenu {
+      position: relative;
+      display: inline-block;
+      width: 120px;
+    }
+
+    .Contact_info {
+      background-color: bisque;
+      margin: 10px;
+      padding: 16px 0;
+      border-radius: 12px;
+      width: 99%;
+      max-height: 550px;
+      text-align: center;
+    }
+
+    .Contact_info hr {
+      border: none;
+      /* Remove default border */
+      border-top: 2px solid black;
+      /* Add a top border to simulate an HR */
+      width: 80%;
+      /* Responsive width for different screen sizes */
+      margin: 20px auto;
+      /* Center-align and add vertical space */
+    }
+
+    .h1contact {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 16px 0 0;
+      font-size: 22px;
+      font-weight: lighter;
+    }
+
+    .icon-container {
+      display: flex;
+      /* Use flexbox to align icons horizontally */
+      justify-content: space-around;
+      /* Distribute space evenly between icons */
+      align-items: center;
+      /* Center-align items vertically */
+      padding: 20px;
+      margin: 10px 0;
+      /* Adjust vertical margin as needed */
+    }
+
+    .icon {
+      text-align: center;
+      color: #333;
+      font-size: 24px;
+      /* Increase font size for larger icons */
+      flex: 1;
+      /* Allow icons to expand and take available space */
+    }
+
+    .icon i {
+      font-size: 50px;
+      /* Increase the icon size */
+      margin-bottom: 10px;
+      /* Space between icon and text */
+    }
+
+    .icon p {
+      margin: 0;
+      /* Remove default margins from paragraph */
+      font-size: 16px;
+      /* Adjust font size for readability */
+      font-weight: bold;
+    }
+
+    .Architecture {
+      margin: 10px;
+      margin-left: 12px;
+    }
+
+    .Staq_1 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+    }
+
+    .text1 {
+      margin-left: 10px;
+      font-size: 20px;
+    }
+
+    .text1.hr {
+      width: 500px;
+    }
+
+    .Staq_2 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .text2 {
+      margin-left: 10px;
+      font-size: 20px;
+    }
+
+    .Staq_3 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .text3 {
+      margin-left: 10px;
+      font-size: 20px;
+    }
+
+    .Sgrada1_pic {
+      padding: 10px;
+      background-color: rgb(133, 50, 50);
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    .Gallery {
+      display: flex;
+      margin: 10px;
+      gap: 10px;
+      overflow: auto;
+      white-space: nowrap;
+    }
+
+    .Gallery img {
+      cursor: pointer;
+    }
+
+    .textSgrada {
+      font-weight: bold;
+      font-size: large;
+      text-align: center;
+    }
+
+    .lightbox-arrow {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 30px;
+      transition: 0.3s;
+      user-select: none;
+    }
+
+    .lightbox-arrow:hover {
+      color: #bbb;
+    }
+
+    .lightbox-arrow-left {
+      left: 0;
+    }
+
+    .lightbox-arrow-right {
+      right: 0;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      .navbar {
+        padding: 10px 10px;
+        /* Adjust padding */
+      }
+
+      .gallery {
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .icon-container {
+        flex-direction: row;
+      }
+
+      .dropdownphone {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .info {
+        padding-top: 120px;
+        /* Adjust padding for info section */
+      }
+
+      .Staq_1,
+      .Staq_2,
+      .Staq_3 {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center align items */
+        text-align: center;
+        /* Center align text */
+      }
+
+      .Staq_1 .text1,
+      .Staq_2 .text2,
+      .Staq_3 .text3 {
+        margin-left: 0;
+        /* Remove left margin */
+        margin-top: 10px;
+        /* Add some space above text */
+      }
+
+      .text1.hr {
+        display: none;
+        width: 50px;
+      }
+
+      .navbar {
+        width: 100%;
+      }
+
+      .customh1 {
+        font-size: 24px;
+        /* Decrease font size for customh1 */
+      }
+
+      .gallery img {
+        margin-bottom: 10px;
+        /* Adjust margin for smaller screens */
+      }
+
+      .icon {
+        font-size: 20px;
+        margin-bottom: 19px;
+        /* Decrease icon size for smaller screens */
+      }
+
+      .icon i {
+        font-size: 40px;
+        /* Decrease icon size for smaller screens */
+      }
+
+      .icon-container {
+        flex-direction: column;
+        /* Stack icons vertically on mobile */
+        align-items: center;
+        /* Center-align icons horizontally */
+        text-align: center;
+        /* Center-align text under icons */
+      }
+
+      .testing {
+        flex-direction: column;
+      }
+
+      .About_us {
+        width: 615px;
+      }
+
+      .Contact_info {
+        width: 90%;
+        /* Ensure consistent width */
+        margin: 10px auto;
+        /* Center-align and provide consistent margin */
+        padding: 16px;
+        box-sizing: border-box;
+        /* Ensure padding is included in width */
+      }
+
+      .nav-items {
+        display: none;
+      }
+
+      .menu-icon {
+        color: black;
+        display: block;
+      }
+
+      .dropdownphone {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #4e4747;
+        min-width: 100%;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+
+      .dropmenu.dropdown-content {
+        display: none;
+        position: relative;
+        background-color: #4e4747;
+        width: 100%;
+      }
+
+      .dropmenu.show .dropdown-content {
+        display: block;
+        /* Show dropdown content when 'show' class is added */
+      }
+
+      .dropdown-content {
+        position: static;
+        background-color: #ec0b0b;
+        width: 510px;
+        display: none;
+      }
+
+      .dropbtn {
+        text-align: left;
+        width: 510px;
+        background-color: #4e4747;
+      }
+    }
+
+
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .lightbox-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .lightbox-caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+    }
+
+    .lightbox-arrow {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 30px;
+      transition: 0.3s;
+      user-select: none;
+    }
+
+    .lightbox-arrow:hover {
+      color: #bbb;
+    }
+
+    .lightbox-arrow-left {
+      left: 0;
+    }
+
+    .lightbox-arrow-right {
+      right: 0;
+    }
+
+
+    /* Style for the zoom-in overlay */
+    .zoomin {
+      display: none;
+      /* Hide the zoom-in container by default */
+      position: fixed;
+      /* Fixes the position relative to the viewport */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      /* Semi-transparent black background */
+      z-index: 1000;
+      /* High z-index to make sure it appears in front */
+      overflow: auto;
+      /* Allows scrolling if content overflows */
+    }
+
+    /* Style for the zoomed-in image */
+    .zoomin-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* Style for the close button */
+    .zoomin-close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      /* Make sure the close button is above the image */
+    }
+
+    /* Style for the caption */
+    .zoomin-caption {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: white;
+      font-size: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Background for caption */
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <a class="logo" href="index.html"><img src="finalhope.png" alt="logo" style="height:42px; width: 150px;"></a>
+    <span class="menu-icon" onclick="toggleDropdown()"><i class="fa fa-bars"></i></span>
+    <ul class="nav-items">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About Us</a></li>
+      <li><a class="active" href="Apartament.html">Apartament</a></li>
+    <!-- <li class="dropmenu">
+        <button class="dropbtn">Dropdown
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </li>-->
+      <li><a  href="Buildings.html">Buildings</a></li>
+    </ul>
+    <div class="dropdownphone" id="dropdown-menu">
+      <a href="index.html">Home</a>
+      <a href="About.html">About Us</a>
+      <a  class="active" href="Apartament.html">Apartament</a>
+      <!--<li class="dropmenu">
+        <button class="dropbtn">Dropdown
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </li> -->
+      
+      <a href="Buildings.html">Buildings</a>
+    </div>
+  </div>
+
+  <h1 class="idk">123</h1>
+  <div class="Sgrada1_pic">
+    <div class="textSgrada">
+      <p>Снимки на сградата</p>
+    </div>
+    <div class="Gallery">
+      <img src="pexels-photo-106399.jpeg" alt="Image 1" style="width: 300px; height: 300px;"
+        onclick="openLightbox(this)">
+      <img src="isagi.jpg" alt="Image 2" style="width: 300px; height: 300px;" onclick="openLightbox(this)">
+      <img src="8748_gigachad.png" alt="Image 3" style="width: 300px; height: 300px;" onclick="openLightbox(this)">
+      <img src="Perry_the_Platypus.png" alt="Image 3" style="width: 300px; height: 300px;" onclick="openLightbox(this)">
+    </div>
+  </div>
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <a class="lightbox-arrow lightbox-arrow-left" onclick="changeImage(-1)">&#10094;</a>
+    <a class="lightbox-arrow lightbox-arrow-right" onclick="changeImage(1)">&#10095;</a>
+  </div>
+
+  <div id="zoomin" class="zoomin">
+    <span class="zoomin-close" onclick="closeZoomin()">&times;</span>
+    <img class="zoomin-content" id="zoomin-img">
+    <div class="zoomin-caption" id="zoomin-caption"></div>
+  </div>
+
+
+
+  <div class="Architecture">
+    <div class="Staq_1">
+      <div class="pictures1">
+        <img src="sg1_et1.png" height="300px" width="300px" onclick="zoomin(this)">
+      </div>
+      <div class="text1">
+        
+        <p>Цена:12312512лв<br>Местоположение: Велинград бул.нещо си<br>Вид на апартамента:
+          мезонет<br>Квадратура:150кв<sup>2</sup><br>Вид строителство:<br>Етаж:<br>Брой стаи: 3<br><a href="sg1_et1.png" target="_blank" style="color: black;"><img src="pdf.png" style="width:50px; margin-top: 5px; mix-blend-mode: multiply;"></a><br>
+        <hr style="color: green;">
+        </div>
+    </div>
+    <div class="Staq_2">
+      <div class="pictures2">
+        <img src="sg1_et3.png" height="300px" width="300" onclick="zoomin(this)">
+      </div>
+      <div class="text2">
+        
+        <p>Цена:12312512лв<br>Местоположение: Велинград бул.нещо си<br>Вид на апартамента:
+          мезонет<br>Квадратура:150кв<sup>2</sup><br>Вид строителство:<br>Етаж:<br>Брой стаи: 3<br><a href="sg1_et3.png" target="_blank" style="color: black;"><img src="pdf.png" style="width:50px; margin-top: 5px; mix-blend-mode: multiply;"></a><br>
+          <hr style="color: green;">
+        </div>
+    </div>
+    <div class="Staq_3">
+      <div class="pictures3">
+        <img src="sg1_et2.png" height="300px" width="300" onclick="zoomin(this)">
+      </div>
+      <div class="text3">
+        
+        <p>Цена:12312512лв<br>Местоположение: Велинград бул.нещо си<br>Вид на апартамента:
+          мезонет<br>Квадратура:150кв<sup>2</sup><br>Вид строителство:<br>Етаж:<br>Брой стаи: 3<br><a href="sg1_et2.png" target="_blank" style="color: black;"><img src="pdf.png" style="width:50px; margin-top: 5px; mix-blend-mode: multiply;"></a><br>
+          <hr style="color: green;">
+        </div>
+    </div>
+    
+    </div>
+  </div>
+  <div class="Contact_info">
+    <h1 class="h1contact">Можете да се свържете с нас чрез:</h1>
+    <hr color="black" width="400px" align="center">
+    <div class="icon-container">
+      <div class="icon">
+        <i class="fa fa-phone"></i>
+        <p style="font-size: 15px;">Номер за връзка:<br>0876842484</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-envelope"></i>
+        <p style="font-size: 15px;">e-mail:<br>neshto@abv.bg</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-bed"></i>
+        <p style="font-size: 15px;">Адрес:<br>Дойран 18</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.Gallery img');
+
+    function toggleDropdown() {
+      var navItems = document.querySelector('.nav-items');
+      var dropdown = document.getElementById("dropdown-menu");
+      if (navItems.classList.contains('show')) {
+        navItems.classList.remove('show');
+        dropdown.style.display = "none";
+      } else {
+        navItems.classList.add('show');
+        dropdown.style.display = "block";
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdown = document.getElementById("dropdown-menu");
+      if (!dropdown) {
+        console.error("Dropdown menu not found.");
+      }
+    });
+
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+
+      lightboxImg.src = img.src;
+      lightboxCaption.innerHTML = img.alt;
+      lightbox.style.display = 'block';
+
+      currentImageIndex = Array.from(images).indexOf(img);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+
+    function changeImage(direction) {
+      currentImageIndex += direction;
+      if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+      } else if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+      }
+      const img = images[currentImageIndex];
+      openLightbox(img);
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === 'ArrowLeft') {
+        changeImage(-1);
+      } else if (event.key === 'ArrowRight') {
+        changeImage(1);
+      }
+    }
+
+    window.onclick = function (event) {
+      const lightbox = document.getElementById('lightbox');
+      if (event.target == lightbox) {
+        closeLightbox();
+      }
+    }
+    function zoomin(img) {
+    const zoomin = document.getElementById('zoomin');
+    const zoominImg = document.getElementById('zoomin-img');
+    const zoominCaption = document.getElementById('zoomin-caption');
+
+    zoominImg.src = img.src;
+    zoominCaption.innerHTML = img.alt;
+    zoomin.style.display = 'block';
+
+    // Add a keydown event listener to close zooming on 'Escape' key press
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Add click event listener to close when clicking outside the zoomed image
+    zoomin.addEventListener('click', closeIfOutsideImage);
+  }
+
+  function closeZoomin() {
+    const zoomin = document.getElementById('zoomin');
+    zoomin.style.display = 'none';
+
+    // Remove the keydown event listener when closing
+    document.removeEventListener('keydown', handleKeyDown);
+
+    // Remove the click event listener for outside click
+    zoomin.removeEventListener('click', closeIfOutsideImage);
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === 'Escape') {
+      closeZoomin();
+    }
+  }
+
+  function closeIfOutsideImage(event) {
+    const zoominImg = document.getElementById('zoomin-img');
+
+    // If the click is outside the image, close the zoomed view
+    if (!zoominImg.contains(event.target)) {
+      closeZoomin();
+    }
+  }
+
+
+  </script>
+</body>
+
+</html>

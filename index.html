@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" type="image/png" href="finalhope.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* General Styles */
+    body {
+      background-color: rgb(185, 185, 185);
+      margin: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .idk {
+      visibility: none;
+      
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      z-index: 1000;
+      border-bottom: 0px solid white;
+    }
+
+    .logo {
+      margin-left: 9px;
+      margin-right: auto;
+      border-radius: 8px;
+      mix-blend-mode: multiply;
+    }
+
+
+
+    .nav-items {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      flex-grow: 1;
+
+
+    }
+
+    .nav-items li {
+      padding: 0;
+
+    }
+
+    .nav-items li a {
+      display: block;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: rgb(90, 90, 90);
+      /* Default background color */
+      color: white;
+    }
+
+    .nav-items li a:hover:not(.active) {
+      background-color: rgb(129, 54, 54);
+      /* Hover background color */
+    }
+
+    /* Ensure this rule is listed after the other rules */
+    .nav-items li a.active {
+      background-color: rgb(129, 2, 2);
+      /* Active background color */
+    }
+
+
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .dropdownphone {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #4e4747;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .dropdownphone a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .dropdownphone a.active{
+      background-color: #04AA6D;
+    }
+
+    .dropdownphone a:hover:not(.active) {
+      background-color: #575757;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #2e2d2d;
+      min-width: 120px;
+      max-width: 1000px;
+      width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+
+    .dropdown-content a:hover {
+      background-color: #575757;
+    }
+
+    .dropbtn {
+      background-color: #a87c7c;
+      color: white;
+      padding: 14px 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      min-width: 120px;
+      width: 120px;
+      max-width: 1000px;
+      padding-bottom: 14px;
+    }
+
+    .dropbtn:hover {
+      background-color: #c76464;
+    }
+
+    .dropmenu:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropmenu {
+      position: relative;
+      display: inline-block;
+      width: 120px;
+    }
+
+    /* Main Content Styles */
+    .info {
+      background-color: rgb(128, 128, 128);
+      border-radius: 8px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 80px 300px 16px;
+      padding-top: 50px;
+    }
+
+
+    .customh1 {
+      color: rgb(255, 0, 0);
+      background-image: url('home_office1.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* Ensures the background image covers the whole area */
+      font-weight: bold;
+      padding: 20px;
+      font-size: 29px;
+      margin: 20px auto;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* Ensures that text elements are stacked vertically */
+      height: 400px;
+      /* Set a fixed height to ensure the container has enough space */
+      width: calc(100% - 83px);
+      max-width: 865;
+      /* Optional: set a maximum width */
+    }
+
+    .moto {
+      mix-blend-mode: multiply;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 55px;
+      max-width: 100%;
+      z-index: 1;
+    }
+
+    .textMoveUp {
+      position: relative;
+      top: -35px;
+    }
+
+    /* Gallery Styles */
+    .gallery {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      /* Allow items to wrap on smaller screens */
+      justify-content: center;
+      /* Center-align items */
+      gap: 20px;
+      /* Add space between images */
+    }
+
+    /* Image Container Styles */
+    .gallery-item {
+      height: 400px;
+      /* Set a consistent height for the image container */
+      width: 600px;
+      /* Adjust the width to fit your design */
+      border-radius: 8px;
+      /* Add rounded corners to the container */
+      overflow: hidden;
+      /* Hide any overflow content */
+      background-color: #f5f5f5;
+      /* Optional: set a background color for the container */
+      border: 2px solid #ddd;
+      /* Optional: add a border to the container */
+    }
+
+    /* Image Styles */
+    .gallery-item img {
+      height: 100%;
+      /* Make the image fill the container height */
+      width: 100%;
+      /* Make the image fill the container width */
+      object-fit: cover;
+      /* Maintain aspect ratio while covering the container */
+      display: block;
+      /* Remove any extra space below the image */
+    }
+
+    .gallery1,
+    .gallery2{
+      position:relative;
+      display: inline-block;
+    }
+    .text-overlay{
+      
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background-color: bisque;
+      color: rgb(0, 0, 0);
+      font-family: Arial, sans-serif;
+      font-size: 25px;
+      padding-top: 5px;
+      box-sizing: border-box;
+    
+    }
+    
+    .inlineBP{
+      list-style-type: none;
+    }
+    .inlineBP li {
+      float: left;
+      font-weight: bold;
+      font-size: 26px;
+      margin-bottom: 1cm;
+      margin-left: 2cm;
+    }
+
+
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: inline-block;
+      border-radius: 12px;
+      background-color: rgb(129, 2, 2);
+      border: none;
+      text-align: center;
+      font-size: 16px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .button1 span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button1 span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button1:hover span {
+      padding-right: 25px;
+    }
+
+    .button1:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+    .testing {
+      display: flex;
+      /* Use flex instead of inline-flex to handle responsiveness better */
+      flex-direction: row;
+      flex-wrap: wrap;
+      /* Allow items to wrap on smaller screens */
+    }
+
+    /* About Us Section Styles */
+    .About_us {
+      background-color: rgba(201, 226, 207, 0.973);
+      border-radius: 12px;
+      width: 890px;
+      /* Adjust width to 100% on mobile */
+      max-width: 900px;
+      /* Maximum width on larger screens */
+      text-align: justify;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px auto;
+      margin-left: 20px;
+      font-weight: lighter;
+
+      /* Center-align with margin auto */
+    }
+
+    .About_us h1 {
+      margin-top: 0;
+    }
+
+    .About_us_para {
+      font-size: 20px;
+      color: #161616;
+      font-weight: 100;
+    }
+    
+
+    /* Contact Info Section Styles */
+    .Contact_info {
+      background-color: bisque;
+      margin: 10px auto;
+
+      /* Center-align with margin auto */
+      padding: 16px;
+      margin-right: 20px;
+      border-radius: 12px;
+      width: 49%;
+      /* Ensure consistent width */
+      max-width: 965px;
+      /* Maximum width on larger screens */
+      box-sizing: border-box;
+      /* Include padding in width */
+    }
+
+    /* HR Styling */
+    .Contact_info hr {
+      border: none;
+      /* Remove default border */
+      border-top: 2px solid black;
+      /* Add a top border to simulate an HR */
+      width: 80%;
+      /* Responsive width for different screen sizes */
+      margin: 20px auto;
+      /* Center-align and add vertical space */
+    }
+
+    /* Icon Container Styles */
+    .icon-container {
+      display: flex;
+      /* Use flexbox to align icons horizontally */
+      justify-content: space-around;
+      /* Distribute space evenly between icons */
+      align-items: center;
+      /* Center-align items vertically */
+      padding: 20px;
+      margin: 10px 0;
+      /* Adjust vertical margin as needed */
+    }
+
+    /* Icon Styles */
+    .icon {
+      text-align: center;
+      color: #333;
+      font-size: 24px;
+      /* Increase font size for larger icons */
+      flex: 1;
+      /* Allow icons to expand and take available space */
+    }
+
+    .icon i {
+      font-size: 50px;
+      /* Increase the icon size */
+      margin-bottom: 10px;
+      /* Space between icon and text */
+    }
+
+    .icon p {
+      margin: 0;
+      /* Remove default margins from paragraph */
+      font-size: 16px;
+      /* Adjust font size for readability */
+      font-weight: bold;
+    }
+    
+    
+     
+    /* Responsive Styles */
+    @media (min-width: 769px) and (max-width: 1366px) {
+      .info {
+        padding: 80px 40px 16px;
+      }
+
+      .logo {
+        width: 80px;
+      }
+
+
+      .nav-items li a {
+        padding: 12px 14px;
+      }
+
+      .About_us{
+        width: 47%;
+        height: 220px;
+        margin: 10px;
+        margin-left: 20px;
+      }
+      .Contact_info{
+        width: 47%;
+        height: 240px;
+        margin-right: 20px;
+      }
+
+      .gallery img {
+        width: 45%;
+        height: 50%;
+        margin-bottom: 20px;
+      }
+
+      
+      .customh1 {
+        height: 300px;
+        font-size: 24px;
+      }
+
+      .inlineBP {
+        flex-direction: row;
+        /* Display bullet points in a row on tablet screens */
+        justify-content: center;
+        /* Center-align bullet points */
+      }
+      
+    }
+
+    /* Responsive Styles */
+    @media only screen and (max-width: 768px) {
+      /* ТЕЛЕФОНИ */
+
+      .customh1 {
+        font-size: 20px;
+        /* Adjust font size for smaller screens */
+        padding: 10px;
+        width: calc(100% - 70px);
+        /* Adjust width for smaller screens */
+        height: 150px;
+        /* Reduce height for better fit on mobile screens */
+      }
+
+      .customh1 h1 {
+        font-size: 16px;
+        /* Adjust heading font size */
+        text-align: center;
+        /* Center-align text */
+      }
+
+      .customh1 p {
+        font-size: 12px;
+        /* Adjust paragraph font size */
+        text-align: center;
+        /* Center-align text */
+      }
+
+      .info {
+        padding-top: 120px;
+        padding: 16px;
+        
+      }
+
+      .customh1 {
+        font-size: 24px;
+      }
+
+      .gallery {
+        width: 90%;
+        /* Ensure the same width on mobile */
+        margin: 10px auto;
+        /* Center-align the gallery */
+        padding: 16px;
+        box-sizing: border-box;
+      }
+
+      .gallery img {
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .icon {
+        font-size: 20px;
+        margin-bottom: 19px;
+      }
+
+      .icon i {
+        font-size: 40px;
+        
+        /* Adjust icon size for mobile */
+      }
+
+      .icon-container {
+        flex-direction: column;
+        /* Stack icons vertically on mobile */
+        align-items: center;
+        /* Center-align icons horizontally */
+        text-align: center;
+        /* Center-align text under icons */
+      }
+
+      .icon-container p {
+        font-size: 14px;
+        /* Adjust text size for mobile */
+      }
+
+      .About_us,
+      .Contact_info {
+        width: 90%;
+        /* Ensure consistent width */
+        margin: 10px auto;
+        /* Center-align and provide consistent margin */
+        padding: 16px;
+        box-sizing: border-box;
+        /* Ensure padding is included in width */
+      }
+
+      .nav-items {
+        display: none;
+      }
+
+      .menu-icon {
+        color: black;
+        display: block;
+      }
+
+      .dropdownphone {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #4e4747;
+        min-width: 100%;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+
+      .dropmenu.dropdown-content {
+        display: none;
+        position: relative;
+        background-color: #4e4747;
+        width: 100%;
+      }
+
+      .dropmenu.show .dropdown-content {
+        display: block;
+        /* Show dropdown content when 'show' class is added */
+      }
+
+      .dropdown-content {
+        position: static;
+        background-color: #ec0b0b;
+        width: 510px;
+        display: none;
+      }
+
+      .dropbtn {
+        text-align: left;
+        width: 510px;
+        background-color: #4e4747;
+      }
+
+      .customh1 .moto {
+        margin-left: 100px;
+        margin-top: 20px;
+        /* Allow height to adjust based on content */
+      }
+
+      .inlineBP {
+        display: none;
+        text-align: left;
+
+      }
+      .h1contact{
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <body>
+    <div class="navbar">
+      <a class="logo" href="index.html"><img src="finalhope.png" alt="logo" style="height:42px; width: 150px;"></a>
+      <span class="menu-icon" onclick="toggleDropdown()"><i class="fa fa-bars"></i></span>
+      <ul class="nav-items">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="About.html">About Us</a></li>
+        <li><a href="Apartament.html">Apartament</a></li>
+      <!-- <li class="dropmenu">
+          <button class="dropbtn">Dropdown
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </li>-->
+        <li><a href="Buildings.html">Buildings</a></li>
+      </ul>
+      <div class="dropdownphone" id="dropdown-menu">
+        <a class="active" href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="Apartament.html">Apartament</a>
+        <!--<li class="dropmenu">
+          <button class="dropbtn">Dropdown
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </li> -->
+        
+        <a href="Buildings.html">Buildings</a>
+      </div>
+    </div>
+
+
+
+  <h1 class="idk">123</h1>
+  <div class="customh1">
+    <div class="moto">
+      <img src="moto.png" width="100%">
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="info">
+
+      <h1>Апартаменти, търговски помещения за продажба, отдаване под наем, директно от строителя, Велинград </h1>
+      <ul class="inlineBP">
+        <li><span>&#10148;</span> Обекти в продажба</li>
+        <li><span>&#10148;</span> Почивка и отдих</li>
+        <li><span>&#10148;</span> Отдаване под наем</li>
+      </ul>
+      <a class="gallery1" href="Sgrada1.html">
+        <img src="sgrada 1.jpg" alt="mazna" width="600" height="500">
+        <div class="text-overlay"><span style="font-weight: bold;">Сграда 1</span><br>кв. Лъджене, ул. "Свети Никола" 1, 4600 Велинград</div>
+
+      </a>
+      <a class="gallery2" href="Sgrada2.html">
+        <img src="sgrada 2.jpg" alt="perry" width="600" height="500">
+        <div class="text-overlay"><span style="font-weight: bold;">Сграда 2</span><br>кв. Чепино, ул. "Свети Димитър" 8, 4600 Велинград</div>
+
+      </a>
+      <div class="button-container">
+        <a href="Buildings.html" class="buttons button1"><span>Виж всички сгради</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="testing">
+    <div class="About_us">
+      <h1>За нас</h1>
+      <hr style="width: 150px; color: rgb(129, 2, 2);" width="150px" align="left">
+      <p class="About_us_para">
+        Фирма <span style="font-weight: bold; color: rgb(129, 2, 2);">Danielis stroy</span> е с доказан професионален опит в планирането и
+        цялостното изграждане на жилищни сгради, както и в допълнителни дейности - полагане на подови покрития,
+        изпълнение на различни видове строително-монтажни работи от крайните фази на строителния процес и др. Добрата
+        строителна практика се постига благодарение на отлично подготвен екип и сътрудничество с партньори със сходни
+        високи критерии за качество. <span style="font-weight: bold; color: rgb(129, 2, 2);"> Цените на нашите услуги са привлекателни!</span>
+      </p>
+    </div>
+
+    <div class="Contact_info">
+      <h1 class="h1contact" align="center">Можете да се свържете с нас чрез</h1>
+      <hr style="width: 400px;   color:rgb(129, 2, 2);" width="400px" align="center">
+      <div class="icon-container">
+        <div class="icon">
+          <i class="fa fa-phone"></i>
+          <p style="font-size: 15px;">Номер за връзка:<br>0876842484</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-envelope"></i>
+          <p style="font-size: 15px;">e-mail:<br>neshto@abv.bg</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-bed"></i>
+          <p style="font-size: 15px;">Адрес:<br>Дойран 18</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function toggleDropdown() {
+      var navItems = document.querySelector('.nav-items');
+      var dropdown = document.getElementById("dropdown-menu");
+      if (navItems.classList.contains('show')) {
+        navItems.classList.remove('show');
+        dropdown.style.display = "none";
+      } else {
+        navItems.classList.add('show');
+        dropdown.style.display = "block";
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdown = document.getElementById("dropdown-menu");
+      if (!dropdown) {
+        console.error("Dropdown menu not found.");
+      }
+    });
+
+  </script>
+</body>
+
+</html>

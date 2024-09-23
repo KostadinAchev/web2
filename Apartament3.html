@@ -13,10 +13,10 @@
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
-    .idk {
-      visibility: none;
-    }
+    
 
+    
+    /* Navbar Styles */
     .navbar {
       display: flex;
       align-items: center;
@@ -26,7 +26,7 @@
       width: 100%;
       padding: 10px 16px;
       box-sizing: border-box;
-      z-index: 1000;
+      z-index: 1500;
       border-bottom: 0px solid white;
     }
 
@@ -37,6 +37,8 @@
       mix-blend-mode: multiply;
     }
 
+
+
     .nav-items {
       display: flex;
       justify-content: center;
@@ -44,10 +46,13 @@
       margin: 0;
       padding: 0;
       flex-grow: 1;
+
+
     }
 
     .nav-items li {
       padding: 0;
+
     }
 
     .nav-items li a {
@@ -56,19 +61,19 @@
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
-      background-color: #a87c7c;
+      background-color: rgb(90, 90, 90);
       /* Default background color */
       color: white;
     }
 
     .nav-items li a:hover:not(.active) {
-      background-color: #c76464;
+      background-color: rgb(129, 54, 54);
       /* Hover background color */
     }
 
     /* Ensure this rule is listed after the other rules */
     .nav-items li a.active {
-      background-color: #04AA6D;
+      background-color: rgb(129, 2, 2);
       /* Active background color */
     }
 
@@ -85,7 +90,7 @@
       position: absolute;
       top: 100%;
       right: 0;
-      background-color: #4e4747;
+      background-color: rgb(90, 90, 90);
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1000;
@@ -98,12 +103,28 @@
       display: block;
       text-align: left;
     }
-
-    .dropdownphone a.active {
-      background-color: #04AA6D;
+    
+    .dropdownphone a.active{
+      background-color: rgb(129, 2, 2);
     }
 
     .dropdownphone a:hover:not(.active) {
+      background-color: rgb(129, 54, 54);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #2e2d2d;
+      min-width: 120px;
+      max-width: 1000px;
+      width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+
+    .dropdown-content a:hover {
       background-color: #575757;
     }
 
@@ -261,6 +282,7 @@
       padding: 10px;
       background-color: rgb(133, 50, 50);
       margin: 10px;
+      margin-top: 80px;
       border-radius: 8px;
     }
 
@@ -630,7 +652,6 @@
     </div>
   </div>
 
-  <h1 class="idk">123</h1>
   <div class="Sgrada1_pic">
     <div class="textSgrada">
       <p>Снимки на сградата</p>

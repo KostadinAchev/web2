@@ -12,6 +12,8 @@
       padding-top: 70px; /* Adjust based on your navbar height */
     }
 
+    
+    /* Navbar Styles */
     .navbar {
       display: flex;
       align-items: center;
@@ -56,19 +58,19 @@
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
-      background-color: #a87c7c;
+      background-color: rgb(90, 90, 90);
       /* Default background color */
       color: white;
     }
 
     .nav-items li a:hover:not(.active) {
-      background-color: #c76464;
+      background-color: rgb(129, 54, 54);
       /* Hover background color */
     }
 
     /* Ensure this rule is listed after the other rules */
     .nav-items li a.active {
-      background-color: #04AA6D;
+      background-color: rgb(129, 2, 2);
       /* Active background color */
     }
 
@@ -250,7 +252,12 @@
       margin-bottom: 10px;
       /* Space between icon and text */
     }
-
+    .booking{
+      mix-blend-mode: multiply;
+      width: 75px;
+      height: 75px;
+      
+    }
     .icon p {
       margin: 0;
       /* Remove default margins from paragraph */
@@ -436,6 +443,8 @@
     </a>-->
   </div>
 
+
+
   <div class="Contact_info">
     <h1 class="h1contact">Можете да се свържете с нас чрез:</h1>
     <hr color="black" width="400px" align="center">
@@ -451,6 +460,10 @@
       <div class="icon">
         <i class="fa fa-bed"></i>
         <p style="font-size: 15px;">Адрес:<br>Дойран 18</p>
+      </div>
+      <div class="icon">
+        <a href="https://www.booking.com/hotel/bg/danielis-apartament.bg.html"><img  class="booking" src="booking.png"> </a>
+        <p style="font-size: 15px;">Booking link</p>
       </div>
     </div>
   </div>
